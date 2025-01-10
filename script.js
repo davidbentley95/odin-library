@@ -12,10 +12,24 @@ function Book(title, author, pages, readStatus) {
     this.readStatus = readStatus;
 }
 
-console.log(form);
+function addBookToLibrary() {
+    const book = new Book(
+        form.querySelector("#title").value,
+        form.querySelector("#author").value,
+        form.querySelector("#pages").value,
+        true
+    )
+    LIBRARY.push(book);
+}
 
-function getFormInputs(form) {
+function createBookDiv() {
 
+}
+
+function clearForm() {
+    form.querySelector("#title").value = "";
+    form.querySelector("#author").value = "";
+    form.querySelector("#pages").value = "";
 }
 
 // EVENT LISTENERS
@@ -25,6 +39,10 @@ form.addEventListener("submit", (e) => {
 });
 createButton.addEventListener("click", () => {
     // add new book to library
-    modal.close()
+    addBookToLibrary();
+    console.table(LIBRARY);
+    // close modal
+    modal.close();
     // clear form content
+    clearForm();
 });
