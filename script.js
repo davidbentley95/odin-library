@@ -34,9 +34,6 @@ function clearForm() {
 
 // EVENT LISTENERS
 addButton.addEventListener("click", () => modal.showModal());
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-});
 createButton.addEventListener("click", () => {
     // add new book to library
     addBookToLibrary();
