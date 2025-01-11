@@ -12,3 +12,9 @@ dialog {
 button {
     margin-left: 16px;
 }
+
+.book-card {
+    width: 245px;
+    height: 333px;
+    bordeR: 1px solid black;
+}
