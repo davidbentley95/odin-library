@@ -5,6 +5,10 @@ const modal = document.querySelector("dialog");
 const createButton = document.querySelector(".create-book");
 const form = document.querySelector(".new-book-form");
 const bookCarousel = document.querySelector(".book-carousel");
+const readBookCount = document.querySelector(".read-count");
+const pageCount = document.querySelector(".page-count");
+const favouriteBook = document.querySelector("favourite-book");
+const unreadBookCount = document.querySelector("unread-count");
 
 function Book(title, author, pages, readStatus) {
     this.title = title;
@@ -22,6 +26,8 @@ function addBookToLibrary() {
     )
     LIBRARY.push(book);
     createBookDiv(book);
+
+    readBookCount.innerHTML = LIBRARY.length;
 }
 
 function createBookDiv(bookObject) {
