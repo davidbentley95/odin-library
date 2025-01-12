@@ -30,30 +30,29 @@ function createBookDiv(bookObject) {
     const author = document.createElement("p");
     const pages = document.createElement("p");
     const deleteButton = document.createElement("button");
-    const readStatus = document.createElement("div");
     const readLabel = document.createElement("label");
-    const readCheckBox = document.createElement("input");
+    const readCheckbox = document.createElement("input");
     
     newBook.classList.add("book-card");
     title.classList.add("book-title");
     author.classList.add("book-author");
     pages.classList.add("book-pages");
     deleteButton.classList.add("delete-button");
-    readStatus.id = "read-status";
+    readLabel.classList.add("read-status-checkbox");
+    readCheckbox.classList.add("read-status");
 
-    readCheckBox.type = "checkbox";
+    readCheckbox.type = "checkbox";
 
     title.innerHTML = bookObject.title;
     author.innerHTML = bookObject.author;
     pages.innerHTML = bookObject.pages;
     deleteButton.innerHTML = "DELETE BOOK";
-    readCheckBox.checked = bookObject.readStatus;
+    readLabel.innerHTML = "Read?"
+    readCheckbox.checked = bookObject.readStatus;
 
-    readLabel.htmlFor = "read-status";
+    readLabel.append(readCheckbox);
 
-    readStatus.append(readLabel, readCheckBox);
-
-    newBook.append(title, author, pages, readStatus, deleteButton);
+    newBook.append(title, author, pages, readLabel, deleteButton);
 
     bookCarousel.append(newBook);
 }
@@ -62,6 +61,19 @@ function clearForm() {
     form.querySelector("#title").value = "";
     form.querySelector("#author").value = "";
     form.querySelector("#pages").value = "";
+    form.querySelector("#read-status-modal").checked = false;
+}
+
+function updateObjectReadStatus(event) {
+    console.log(event);
+    const parentElement = event.target.parentNode.parentNode;
+    const targetTitle = parentElement.querySelector("h3").textContent;
+    
+    const index = LIBRARY.findIndex(items => items.title === targetTitle);
+
+    console.log(LIBRARY[index]);
+    LIBRARY[index].readStatus = event.target.checked;
+    console.log(LIBRARY[index]);
 }
 
 // EVENT LISTENERS
@@ -80,6 +92,12 @@ document.querySelector(".book-carousel").addEventListener('click', function(even
         // Handle delete
         console.log(event.target.parentNode);
         event.target.parentNode.remove(); // Example: Remove the parent element
+    }
+});
+
+document.querySelector(".book-carousel").addEventListener('click', (event) => {
+    if (event.target.classList.contains('read-status')) {
+        updateObjectReadStatus(event);
     }
 });
 

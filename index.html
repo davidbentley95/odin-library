@@ -17,20 +17,32 @@
         </svg>
     </header>
     <section class="dashboard-icons">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="dashboard-card">
+            <h2>Total books read:</h2>
+            <p class="book-count"></p>
+        </div>
+        <div class="dashboard-card">
+            <h2>Total pages read:</h2>
+            <p class="page-count"></p>
+        </div>
+        <div class="dashboard-card">
+            <h2>Favourite book:</h2>
+            <p class="favourite-book"></p>
+        </div>
+        <div class="dashboard-card">
+            <h2>Total books to be read:</h2>
+            <p class="unread-count"></p>
+        </div>
     </section>
     <section class="book-carousel">
         <div class="book-card">
             <h3 class="book-title">The Will of the Many</h3>
             <p class="book-author">James Islington</p>
             <p class="book-pages">650</p>
-            <div class="read-status-checkbox">
-                <label for="read-status">Read?</label>
-                <input type="checkbox" id="read-status">
-            </div>
+                <label class="read-status-checkbox">
+                    Read? 
+                    <input type="checkbox" class="read-status">
+                </label>
             <button class="delete-button">DELETE BOOK</button>
         </div>
         <div class="book-card">

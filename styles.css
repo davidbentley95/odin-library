@@ -58,3 +58,20 @@ dialog button, .read-status-checkbox {
 .delete-button:hover {
     cursor: pointer;
 }
+
+.dashboard-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.dashboard-card {
+    width: 333px;
+    height: 333px;
+    border: 1px solid black;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
