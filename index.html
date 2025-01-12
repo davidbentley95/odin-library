@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Library</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -20,7 +23,26 @@
         <div></div>
     </section>
     <section class="book-carousel">
-        
+        <div class="book-card">
+            <h3 class="book-title">The Will of the Many</h3>
+            <p class="book-author">James Islington</p>
+            <p class="book-pages">650</p>
+            <div class="read-status-checkbox">
+                <label for="read-status">Read?</label>
+                <input type="checkbox" id="read-status">
+            </div>
+            <button class="delete-button">DELETE BOOK</button>
+        </div>
+        <div class="book-card">
+            <h3 class="book-title">The Will of the Many</h3>
+            <p class="book-author">James Islington</p>
+            <p class="book-pages">650</p>
+        </div>
+        <div class="book-card">
+            <h3 class="book-title">The Will of the Many</h3>
+            <p class="book-author">James Islington</p>
+            <p class="book-pages">650</p>
+        </div>
     </section>
 
 
@@ -38,6 +60,10 @@
             <div class="form-input">
                 <label for="pages">Pages</label>
                 <input id="pages" name="author" type="text">
+            </div>
+            <div class="read-status-checkbox">
+                <label for="read-status-modal">Read?</label>
+                <input type="checkbox" id="read-status-modal">
             </div>
             <button formmethod="dialog" class="create-book">ADD BOOK</button>
         </form>
