@@ -7,8 +7,8 @@ const form = document.querySelector(".new-book-form");
 const bookCarousel = document.querySelector(".book-carousel");
 const readBookCount = document.querySelector(".read-count");
 const pageCount = document.querySelector(".page-count");
-const favouriteBook = document.querySelector("favourite-book");
-const unreadBookCount = document.querySelector("unread-count");
+const favouriteBook = document.querySelector(".favourite-book");
+const unreadBookCount = document.querySelector(".unread-count");
 
 function Book(title, author, pages, readStatus) {
     this.title = title;
@@ -29,14 +29,44 @@ function addBookToLibrary() {
 }
 
 function getTotalBooksRead() {
-    const totalBooksRead = LIBRARY.reduce((total, item) => {
-        console.log(total, item);
+    let totalBooksRead = LIBRARY.reduce((total, item) => {
         if(item.readStatus === true) {
             return total + 1;
         }
+        return total;
     }, 0);
-    console.log(totalBooksRead);
+
     readBookCount.innerHTML = totalBooksRead;
+}
+
+function getTotalBooksUnread() {
+    let totalBooksUnread = LIBRARY.reduce((total, item) => {
+        if(item.readStatus === false) {
+            return total + 1;
+        }
+        return total;
+    }, 0);
+    
+    unreadBookCount.innerHTML = totalBooksUnread;
+
+}
+
+function getTotalPagesRead() {
+    let totalPagesRead = LIBRARY.reduce((total, item) => {
+        if(item.readStatus === true) {
+            return total + Number(item.pages);
+        }
+        return total;
+    }, 0);
+    
+    pageCount.innerHTML = totalPagesRead;
+
+}
+
+function updateDashboard() {
+    getTotalBooksRead();
+    getTotalBooksUnread();
+    getTotalPagesRead();
 }
 
 function createBookDiv(bookObject) {
@@ -101,16 +131,17 @@ function deleteBook(event) {
 addButton.addEventListener("click", () => modal.showModal());
 createButton.addEventListener("click", () => {
     addBookToLibrary();
-    getTotalBooksRead();
+    updateDashboard();
     modal.close();
     clearForm();
+    console.log(LIBRARY);
 });
 
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
     if (event.target.classList.contains('delete-button')) {
         event.target.parentNode.remove();
         deleteBook(event); 
-        getTotalBooksRead();
+        updateDashboard();
     }
 });
 
