@@ -26,8 +26,17 @@ function addBookToLibrary() {
     )
     LIBRARY.push(book);
     createBookDiv(book);
+}
 
-    readBookCount.innerHTML = LIBRARY.length;
+function getTotalBooksRead() {
+    const totalBooksRead = LIBRARY.reduce((total, item) => {
+        console.log(total, item);
+        if(item.readStatus === true) {
+            return total + 1;
+        }
+    }, 0);
+    console.log(totalBooksRead);
+    readBookCount.innerHTML = totalBooksRead;
 }
 
 function createBookDiv(bookObject) {
@@ -71,33 +80,37 @@ function clearForm() {
 }
 
 function updateObjectReadStatus(event) {
-    console.log(event);
     const parentElement = event.target.parentNode.parentNode;
     const targetTitle = parentElement.querySelector("h3").textContent;
     
     const index = LIBRARY.findIndex(items => items.title === targetTitle);
 
-    console.log(LIBRARY[index]);
     LIBRARY[index].readStatus = event.target.checked;
-    console.log(LIBRARY[index]);
+}
+
+function deleteBook(event) {
+    const parentElement = event.target.parentNode;
+    const targetTitle = parentElement.querySelector("h3").textContent;
+
+    const index = LIBRARY.findIndex(items => items.title === targetTitle);
+
+    LIBRARY.splice(index, 1);
 }
 
 // EVENT LISTENERS
 addButton.addEventListener("click", () => modal.showModal());
 createButton.addEventListener("click", () => {
-    // add new book to library
     addBookToLibrary();
-    // close modal
+    getTotalBooksRead();
     modal.close();
-    // clear form content
     clearForm();
 });
 
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
     if (event.target.classList.contains('delete-button')) {
-        // Handle delete
-        console.log(event.target.parentNode);
-        event.target.parentNode.remove(); // Example: Remove the parent element
+        event.target.parentNode.remove();
+        deleteBook(event); 
+        getTotalBooksRead();
     }
 });
 
