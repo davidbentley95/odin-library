@@ -58,7 +58,7 @@ function getTotalPagesRead() {
         }
         return total;
     }, 0);
-    
+
     pageCount.innerHTML = totalPagesRead;
 
 }
@@ -127,6 +127,19 @@ function deleteBook(event) {
     LIBRARY.splice(index, 1);
 }
 
+function changeHeartColor() {
+    document.querySelectorAll(".favourite-icon").forEach((item) => {
+        const favouriteButton = item.querySelector("input");
+        const favouriteIcon = item.querySelector("path");
+
+        if(favouriteButton.checked) {
+           favouriteIcon.setAttribute("fill", "red");
+        } else {
+            favouriteIcon.setAttribute("fill", "white");
+        }
+    });
+}
+
 // EVENT LISTENERS
 addButton.addEventListener("click", () => modal.showModal());
 createButton.addEventListener("click", () => {
@@ -148,6 +161,12 @@ document.querySelector(".book-carousel").addEventListener('click', function(even
 document.querySelector(".book-carousel").addEventListener('click', (event) => {
     if (event.target.classList.contains('read-status')) {
         updateObjectReadStatus(event);
+    }
+});
+
+document.querySelector(".book-carousel").addEventListener('click', function(event) {
+    if (event.target.classList.contains('favourite-button')) {
+        changeHeartColor();
     }
 });
 
