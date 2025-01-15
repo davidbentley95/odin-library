@@ -63,6 +63,18 @@ function getTotalPagesRead() {
 
 }
 
+function getFavouriteBook() {
+    const favouriteBookHeader = document.querySelector(".favourite-book");
+
+    document.querySelectorAll(".book-card").forEach((item) => {
+        const favouriteButton = item.querySelector("input");
+        
+        if(favouriteButton.checked) {
+           favouriteBookHeader.innerHTML = item.querySelector("h3").innerText;
+        }
+    });
+}
+
 function updateDashboard() {
     getTotalBooksRead();
     getTotalBooksUnread();
@@ -152,7 +164,7 @@ function changeHeartColor() {
         const favouriteIcon = item.querySelector("path");
 
         if(favouriteButton.checked) {
-           favouriteIcon.setAttribute("fill", "red");
+           favouriteIcon.setAttribute("fill", "black");
         } else {
             favouriteIcon.setAttribute("fill", "white");
         }
@@ -180,12 +192,14 @@ document.querySelector(".book-carousel").addEventListener('click', function(even
 document.querySelector(".book-carousel").addEventListener('click', (event) => {
     if (event.target.classList.contains('read-status')) {
         updateObjectReadStatus(event);
+        updateDashboard();
     }
 });
 
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
     if (event.target.classList.contains('favourite-button')) {
         changeHeartColor();
+        getFavouriteBook();
     }
 });
 
