@@ -86,6 +86,19 @@ dialog button, .read-status-checkbox {
     flex-direction: column;
 }
 
+.favourite-button {
+    display: none;
+}
+
+.favourite-icon:hover {
+    cursor: pointer;
+}
+
+.favourite-icon {
+    align-self: flex-end;
+    margin-right: 20px;
+}
+
 
 
 
