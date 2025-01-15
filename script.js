@@ -63,7 +63,7 @@ function getTotalPagesRead() {
 
 }
 
-function getFavouriteBook() {
+function getFavouriteBook(event) {
     const favouriteBookHeader = document.querySelector(".favourite-book");
 
     document.querySelectorAll(".book-card").forEach((item) => {
@@ -73,6 +73,13 @@ function getFavouriteBook() {
            favouriteBookHeader.innerHTML = item.querySelector("h3").innerText;
         }
     });
+
+    if(event.target.classList.contains("delete-button")){
+        const deletedBookTitle = event.target.parentElement.querySelector("h3").innerText;
+        if(deletedBookTitle === favouriteBookHeader.innerText) {
+            favouriteBookHeader.innerHTML = "None";
+        }
+    }
 }
 
 function updateDashboard() {
@@ -186,6 +193,7 @@ document.querySelector(".book-carousel").addEventListener('click', function(even
         event.target.parentNode.remove();
         deleteBook(event); 
         updateDashboard();
+        getFavouriteBook(event);
     }
 });
 
@@ -199,7 +207,7 @@ document.querySelector(".book-carousel").addEventListener('click', (event) => {
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
     if (event.target.classList.contains('favourite-button')) {
         changeHeartColor();
-        getFavouriteBook();
+        getFavouriteBook(event);
     }
 });
 
