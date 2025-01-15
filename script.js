@@ -77,6 +77,10 @@ function createBookDiv(bookObject) {
     const deleteButton = document.createElement("button");
     const readLabel = document.createElement("label");
     const readCheckbox = document.createElement("input");
+    const favouriteLabel = document.createElement("label");
+    const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const pathElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const favouriteButton = document.createElement("input");
     
     newBook.classList.add("book-card");
     title.classList.add("book-title");
@@ -85,8 +89,21 @@ function createBookDiv(bookObject) {
     deleteButton.classList.add("delete-button");
     readLabel.classList.add("read-status-checkbox");
     readCheckbox.classList.add("read-status");
+    pathElement.classList.add("heart");
+    favouriteLabel.classList.add("favourite-icon");
+    favouriteButton.classList.add("favourite-button");
+
+    svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svgElement.setAttribute("width", "20");
+    svgElement.setAttribute("height", "19");
+    svgElement.setAttribute("viewBox", "0 0 20 19");
+    svgElement.setAttribute("fill", "none");
+    pathElement.setAttribute("d", "M8.88659 16.6603L8.88587 16.6596C6.30104 14.3157 4.19578 12.4033 2.73088 10.6111C1.27148 8.82559 0.5 7.22062 0.5 5.5C0.5 2.68674 2.69555 0.5 5.5 0.5C7.08885 0.5 8.62206 1.24223 9.62058 2.40564L10 2.84771L10.3794 2.40564C11.3779 1.24223 12.9112 0.5 14.5 0.5C17.3045 0.5 19.5 2.68674 19.5 5.5C19.5 7.22062 18.7285 8.82559 17.2691 10.6111C15.8042 12.4033 13.699 14.3157 11.1141 16.6596L11.1134 16.6603L10 17.6738L8.88659 16.6603Z");
+    pathElement.setAttribute("stroke", "black");
+    favouriteButton.setAttribute("name", "favourite");
 
     readCheckbox.type = "checkbox";
+    favouriteButton.type = "radio";
 
     title.innerHTML = bookObject.title;
     author.innerHTML = bookObject.author;
@@ -96,8 +113,10 @@ function createBookDiv(bookObject) {
     readCheckbox.checked = bookObject.readStatus;
 
     readLabel.append(readCheckbox);
+    svgElement.append(pathElement);
+    favouriteLabel.append(svgElement, favouriteButton);
 
-    newBook.append(title, author, pages, readLabel, deleteButton);
+    newBook.append(favouriteLabel, title, author, pages, readLabel, deleteButton);
 
     bookCarousel.append(newBook);
 }
