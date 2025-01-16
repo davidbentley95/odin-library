@@ -30,8 +30,23 @@ header {
 }
 
 dialog {
-    width: 300px;
-    height: 300px;
+    width: 375px;
+    height: 400px;
+    background: rgba( 255, 255, 255, 0.1 );
+    backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.5 );
+    color: white;
+    font-size: 1.3rem;
+}
+
+.new-book-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-book-form .create-book {
+    align-self: center;
 }
 
 .form-input {
@@ -40,9 +55,40 @@ dialog {
     margin: 16px;
 }
 
-dialog button, .read-status-checkbox {
+.read-status-checkbox {
     margin-left: 16px;
-    margin-bottom: 16px;
+}
+
+#read-status-modal:hover {
+    cursor: pointer;
+}
+
+.form-input input {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 10px;
+    border: 1px solid white;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+
+.create-book {
+    width: 80%;
+    border-radius: 40px;
+    padding: 10px;
+    background-color: var(--complimentColor);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.create-book:hover {
+    cursor: pointer;
 }
 
 .book-card {
@@ -54,7 +100,7 @@ dialog button, .read-status-checkbox {
     padding: 20px;
     align-items: center;
     text-align: center;
-    box-shadow: 10px 10px 9px -5px rgba(0,0,0,0.50), -6px -6px 9px -5px rgba(255,255,255,0.50);
+    box-shadow: 10px 10px 9px -5px rgba(0,0,0,0.30), -6px -6px 9px -5px rgba(255,255,255,0.20);
     border-radius: 10px;
 }
 
