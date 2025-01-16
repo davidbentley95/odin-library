@@ -46,7 +46,7 @@ dialog button, .read-status-checkbox {
     padding: 20px;
     align-items: center;
     text-align: center;
-    box-shadow: 10px 10px 9px -1px rgba(0,0,0,0.50), -6px -6px 9px -5px rgba(255,255,255,0.50);
+    box-shadow: 10px 10px 9px -5px rgba(0,0,0,0.50), -6px -6px 9px -5px rgba(255,255,255,0.50);
     border-radius: 10px;
 }
 
@@ -59,10 +59,15 @@ dialog button, .read-status-checkbox {
 }
 
 .book-carousel {
-    display: flex;
-    gap: 40px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 19%;
     margin-top: 50px;
-    margin-left: 60px;
+    margin-left: 40px;
+    padding: 24px;
+
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
 }
 
 .delete-button {
@@ -75,27 +80,32 @@ dialog button, .read-status-checkbox {
 
 .dashboard-icons {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .dashboard-card {
-    width: 333px;
-    height: 333px;
+    width: clamp(150px, 20vw, 300px);
+    height: clamp(150px, 20vw, 300px);
 
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     flex-direction: column;
     box-shadow: inset -10px -11px 10px -12px #FFFFFF, inset 13px 13px 16px -12px #000000;
 }
 
 .dashboard-card p {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin: 0;
+    width: 90%;
 }
 
 .dashboard-card h2 {
+    font-size: clamp(1rem, 1.1vw, 2rem);
     font-weight: 500;
 }
 
