@@ -4,14 +4,22 @@
     box-sizing: border-box;
 }
 
+:root {
+    --mainColor: #181C14;
+    --complimentColor: #B954C6;
+    --shadeLighter: #272b25;
+    --shade-Darker: #12140f;
+}
+
 body {
     font-family: "Roboto", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     min-height: 100vh;
-    background-color: #181C14;
+    background-color: var(--mainColor);
     color: white;
+    overflow-y: hidden;
 }
 
 header {
@@ -61,7 +69,7 @@ dialog button, .read-status-checkbox {
 .book-carousel {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 19%;
+    grid-auto-columns: minmax(325px, 19%);
     margin-top: 50px;
     margin-left: 40px;
     padding: 24px;
@@ -70,8 +78,15 @@ dialog button, .read-status-checkbox {
     overscroll-behavior-inline: contain;
 }
 
+
 .delete-button {
     width: 70%;
+    border-radius: 40px;
+    padding: 10px;
+    background-color: var(--complimentColor);
+    font-weight: 600;
+    border: none;
+    color: white;
 }
 
 .delete-button:hover {
@@ -86,8 +101,8 @@ dialog button, .read-status-checkbox {
 }
 
 .dashboard-card {
-    width: clamp(150px, 20vw, 300px);
-    height: clamp(150px, 20vw, 300px);
+    width: clamp(175px, 20vw, 300px);
+    height: clamp(175px, 20vw, 300px);
 
     border-radius: 30px;
     display: flex;
@@ -120,6 +135,26 @@ dialog button, .read-status-checkbox {
 .favourite-icon {
     align-self: flex-end;
     margin-right: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+  
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+   
+
+::-webkit-scrollbar-thumb {
+    background: var(--shadeLighter); 
+    border-radius: 10px;
+}
+  
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--complimentColor); 
 }
 
 

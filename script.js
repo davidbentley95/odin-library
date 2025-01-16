@@ -171,9 +171,11 @@ function changeHeartColor() {
         const favouriteIcon = item.querySelector("path");
 
         if(favouriteButton.checked) {
-           favouriteIcon.setAttribute("fill", "white");
+           favouriteIcon.setAttribute("fill", "#B954C6");
+           favouriteIcon.setAttribute("stroke", "#B954C6");
         } else {
-            favouriteIcon.setAttribute("fill", "black");
+            favouriteIcon.setAttribute("fill", "#181C14");
+            favouriteIcon.setAttribute("stroke", "white");
         }
     });
 }
