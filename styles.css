@@ -19,7 +19,7 @@ body {
     min-height: 100vh;
     background-color: var(--mainColor);
     color: white;
-
+    overflow-y: hidden;
 }
 
 header {
@@ -38,6 +38,7 @@ dialog {
     border: 1px solid rgba( 255, 255, 255, 0.5 );
     color: white;
     font-size: 1.3rem;
+    overflow-y: hidden;
 }
 
 .new-book-form {
@@ -55,7 +56,11 @@ dialog {
     margin: 16px;
 }
 
-.read-status-checkbox {
+dialog .read-status-checkbox{
+    margin-left: 20px;
+}
+
+.book-carousel .read-status-checkbox {
     margin-bottom: 20px;
 }
 
