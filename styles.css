@@ -222,6 +222,7 @@ dialog .read-status-checkbox{
 .dashboard-card h2 {
     font-size: clamp(1rem, 1.1vw, 2rem);
     font-weight: 500;
+    width: 80%;
 }
 
 .favourite-button {

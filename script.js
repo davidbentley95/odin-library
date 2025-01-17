@@ -215,9 +215,6 @@ document.querySelector(".book-carousel").addEventListener('click', (event) => {
 
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
     if (event.target.classList.contains('favourite-button')) {
-        if(event.target.checked) {
-            event.target.setAttribute("checked", false);
-        }
         changeHeartColor();
         getFavouriteBook(event);
     }
