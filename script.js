@@ -181,9 +181,16 @@ function changeHeartColor() {
     });
 }
 
+function clearPlaceholderCards() {
+    bookCarousel.innerHTML = "";
+}
+
 // EVENT LISTENERS
 addButton.addEventListener("click", () => modal.showModal());
 createButton.addEventListener("click", () => {
+    if(LIBRARY.length == 0) {
+        clearPlaceholderCards();
+    }
     addBookToLibrary();
     updateDashboard();
     modal.close();
@@ -208,6 +215,9 @@ document.querySelector(".book-carousel").addEventListener('click', (event) => {
 
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
     if (event.target.classList.contains('favourite-button')) {
+        if(event.target.checked) {
+            event.target.setAttribute("checked", false);
+        }
         changeHeartColor();
         getFavouriteBook(event);
     }

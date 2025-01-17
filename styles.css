@@ -65,6 +65,10 @@ dialog .read-status-checkbox{
     margin-bottom: 20px;
 }
 
+.read-status {
+    margin-left: 15px;
+}
+
 #read-status-modal:hover {
     cursor: pointer;
 }
@@ -152,7 +156,7 @@ dialog .read-status-checkbox{
 }
 
 .book-author, .book-pages {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .book-carousel {
@@ -167,20 +171,26 @@ dialog .read-status-checkbox{
     overscroll-behavior-inline: contain;
 }
 
-
 .delete-button {
     width: 70%;
     border-radius: 40px;
     padding: 10px;
-    background-color: var(--complimentColor);
+    background-color: var(--mainColor);
     font-weight: 600;
     border: none;
     color: white;
+    border: 1px solid var(--complimentColor);
     margin-bottom: 20px;
 }
 
 .delete-button:hover {
     cursor: pointer;
+    background-color: var(--complimentColor);
+    color: white;
+}
+
+.delete-button:active {
+    transform: scale(.8);
 }
 
 .dashboard-icons {
