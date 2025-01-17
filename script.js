@@ -9,6 +9,7 @@ const readBookCount = document.querySelector(".read-count");
 const pageCount = document.querySelector(".page-count");
 const favouriteBook = document.querySelector(".favourite-book");
 const unreadBookCount = document.querySelector(".unread-count");
+const cancelButton = document.querySelector(".close-modal");
 
 function Book(title, author, pages, readStatus) {
     this.title = title;
@@ -187,7 +188,6 @@ createButton.addEventListener("click", () => {
     updateDashboard();
     modal.close();
     clearForm();
-    console.log(LIBRARY);
 });
 
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
@@ -213,3 +213,7 @@ document.querySelector(".book-carousel").addEventListener('click', function(even
     }
 });
 
+cancelButton.addEventListener("click", () => {
+    modal.close();
+    clearForm();
+})

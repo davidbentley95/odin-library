@@ -7,6 +7,7 @@
 :root {
     --mainColor: #181C14;
     --complimentColor: #B954C6;
+    --hoverCompliment: #9454C7;
     --shadeLighter: #272b25;
     --shade-Darker: #12140f;
 }
@@ -80,9 +81,8 @@ dialog .read-status-checkbox{
 }
 
 
-.create-book {
-    width: 80%;
-    border-radius: 40px;
+.create-book, .close-modal {
+    width: 40%;
     padding: 10px;
     background-color: var(--complimentColor);
     color: white;
@@ -90,10 +90,36 @@ dialog .read-status-checkbox{
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 20px;
+    border-radius: 5px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.close-modal {
+    background-color: white;
+    color: var(--mainColor);
+}
+
+.create-book:hover, .close-modal:hover {
+    cursor: pointer;
 }
 
 .create-book:hover {
-    cursor: pointer;
+    background: var(--hoverCompliment);
+}
+
+.close-modal:hover {
+    background-color: var(--mainColor);
+    color: white;
+    border: 1px solid white;
+}
+
+.create-book:active, .close-modal:active {
+    transform: scale(.8);
 }
 
 .book-card {
@@ -134,7 +160,7 @@ dialog .read-status-checkbox{
     grid-auto-flow: column;
     grid-auto-columns: minmax(325px, 19%);
     margin-top: 50px;
-    margin-left: 40px;
+    margin-left: 10px;
     padding: 24px;
 
     overflow-x: auto;
