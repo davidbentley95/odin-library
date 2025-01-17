@@ -104,6 +104,18 @@ dialog {
     border-radius: 10px;
 }
 
+.placeholder-book-card {
+    width: 245px;
+    height: 333px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    border: 1px dashed white;
+}
+
 .book-title {
     font-size: 32px; 
 }
