@@ -247,13 +247,12 @@ dialog .read-status-checkbox{
     border-radius: 10px;
 }
    
-
 ::-webkit-scrollbar-thumb {
-    background: var(--shadeLighter); 
+    background: rgba(27, 20, 20, 0.904); 
     border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
   
-
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255,255,255,0.5); 
 }
