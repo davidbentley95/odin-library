@@ -133,7 +133,7 @@ dialog .read-status-checkbox{
 
 .book-card {
     width: 245px;
-    height: 333px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -142,6 +142,7 @@ dialog .read-status-checkbox{
     text-align: center;
     box-shadow: 6px 6px 9px -5px rgba(0,0,0,0.50), -6px -6px 9px -5px rgba(255,255,255,0.10);
     border-radius: 10px;
+
 }
 
 .placeholder-book-card {
@@ -159,10 +160,14 @@ dialog .read-status-checkbox{
 .book-title {
     font-size: 32px; 
     margin: 0;
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 .book-author, .book-pages {
     font-size: 18px;
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 .book-carousel {
@@ -242,6 +247,11 @@ dialog .read-status-checkbox{
 .favourite-icon {
     align-self: flex-end;
     margin-right: 20px;
+}
+
+.favourite-book {
+    width: 100%;
+    overflow-wrap: break-word;
 }
 
 ::-webkit-scrollbar {
