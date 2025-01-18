@@ -204,15 +204,15 @@
         <form class="new-book-form">
             <div class="form-input">
                 <label for="title">Title</label>
-                <input id="title" name="title" type="text">
+                <input id="title" name="title" type="text" required>
             </div>
             <div class="form-input">
                 <label for="author">Author</label>
-                <input id="author" name="author" type="text">
+                <input id="author" name="author" type="text" required>
             </div>
             <div class="form-input">
                 <label for="pages">Pages</label>
-                <input id="pages" name="author" type="number">
+                <input id="pages" name="author" type="number" required>
             </div>
             <div class="read-status-checkbox">
                 <label for="read-status-modal">Read?</label>
@@ -220,7 +220,7 @@
             </div>
             <div class="modal-buttons">
                 <button formmethod="dialog" class="close-modal">Cancel</button>
-                <button formmethod="dialog" class="create-book">ADD BOOK</button>
+                <input formmethod="dialog" class="create-book" type="submit">
             </div>
         </form>
     </dialog>

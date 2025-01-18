@@ -187,14 +187,25 @@ function clearPlaceholderCards() {
 
 // EVENT LISTENERS
 addButton.addEventListener("click", () => modal.showModal());
+
+form.addEventListener('submit', (event) => {
+    // Prevent default form submission
+    event.preventDefault();
+
+    // Check if the form is valid
+    if (form.checkValidity()) {
+        if (LIBRARY.length === 0) {
+            clearPlaceholderCards();
+        }
+        addBookToLibrary();
+        updateDashboard();
+        modal.close();
+        clearForm();
+    } 
+});
+
 createButton.addEventListener("click", () => {
-    if(LIBRARY.length == 0) {
-        clearPlaceholderCards();
-    }
-    addBookToLibrary();
-    updateDashboard();
-    modal.close();
-    clearForm();
+    form.requestSubmit(); // Triggers the form's submit event
 });
 
 document.querySelector(".book-carousel").addEventListener('click', function(event) {
