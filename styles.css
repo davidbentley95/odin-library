@@ -30,6 +30,11 @@ header {
     margin: 10px 20px;
 }
 
+.add-button path:hover {
+    fill: var(--complimentColor);
+    cursor: pointer;
+}
+
 dialog {
     width: 375px;
     height: 400px;
