@@ -11,11 +11,13 @@ const favouriteBook = document.querySelector(".favourite-book");
 const unreadBookCount = document.querySelector(".unread-count");
 const cancelButton = document.querySelector(".close-modal");
 
-function Book(title, author, pages, readStatus) {
+class Book {
+    constructor(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.readStatus = readStatus;
+    }
 }
 
 function addBookToLibrary() {
